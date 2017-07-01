@@ -61,7 +61,7 @@ class Robot
 	end
 
 	def report
-		puts @x, @y, @facing unless unplaced_robot
+		puts "#{@x},#{@y},#{@facing}" unless unplaced_robot
 	end
 
 

@@ -38,16 +38,18 @@ class Robot
 	end
 
 	def move
-		case @facing
-			when NORTH
-				@y += 1 if between_limits(@x, @y + 1)
-			when SOUTH
-				@y += -1 if between_limits(@x, @y - 1)	
-			when EAST
-				@x += 1	if between_limits(@x + 1, @y)
-			when WEST
-				@x += -1 if between_limits(@x - 1, @y)
-		end		
+		if !unplaced_robot
+			case @facing
+				when NORTH
+					@y += 1 if between_limits(@x, @y + 1)
+				when SOUTH
+					@y += -1 if between_limits(@x, @y - 1)	
+				when EAST
+					@x += 1	if between_limits(@x + 1, @y)
+				when WEST
+					@x += -1 if between_limits(@x - 1, @y)
+			end
+		end
 	end
 
 	def place(x, y, facing)
@@ -88,7 +90,7 @@ class String
 end
  
 robot = Robot.new
-File.foreach( 'example4.robot' ) do |line|
+File.foreach( 'example5.robot' ) do |line|
 	line.chomp!
 	begin
 		puts line

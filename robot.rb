@@ -90,16 +90,15 @@ class String
 end
  
 robot = Robot.new
-File.foreach( 'example5.robot' ) do |line|
+puts "Load File:"
+filename = gets
+filename.chomp!
+File.foreach(filename) do |line|
 	line.chomp!
-	begin
-		puts line
-		if Robot.valid_command(line)
-			robot.instance_eval line.downcase_command
-		else
-			puts "Invalid command!"
-		end
-	rescue
-		puts "Reached unreachable code.. something must be wrong!\n"
+	puts line
+	if Robot.valid_command(line)
+		robot.instance_eval line.downcase_command
+	else
+		puts "Invalid command!"
 	end
 end

@@ -88,7 +88,7 @@ class String
 end
  
 robot = Robot.new
-File.foreach( 'example1.robot' ) do |line|
+File.foreach( 'example4.robot' ) do |line|
 	line.chomp!
 	begin
 		puts line

@@ -60,7 +60,7 @@ class Robot
 	end
 
 	def report
-		puts "#{@x},#{@y},#{@facing}"
+		printf "#{@x},#{@y},#{@facing}"
 	end
 
 end

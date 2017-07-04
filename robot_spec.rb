@@ -34,7 +34,7 @@ describe Robot do
 		expect(@robot.instance_variable_get("@x")).to eq(2)
 		expect(@robot.instance_variable_get("@y")).to eq(3)
 		expect(@robot.instance_variable_get("@facing")).to eq("EAST")
-		expect { @robot.report }.to output("2,3,EAST\n").to_stdout
+		expect { @robot.report }.to output("2,3,EAST").to_stdout
 	end
 
 end

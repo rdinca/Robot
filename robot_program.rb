@@ -20,12 +20,12 @@ class RobotProgram
 
 		File.foreach(filename) do |line|
 			line.chomp!
-			puts line
+			#puts line
 			if after_valid_place(line)
 				if valid_command(line)
 					@robot.instance_eval line.downcase_command
 				else
-					puts "Invalid command!"
+					#puts "Invalid command!"
 				end
 			end
 		end

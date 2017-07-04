@@ -17,4 +17,9 @@ describe RobotProgram do
 		expect(rp.send(:valid_command, "left")).to be false
 	end
 
+	it "should output the correct report" do
+		rp = RobotProgram.new
+		expect { rp.process_commands("example2.robot") }.to output("3,3,NORTH").to_stdout
+	end
+
 end

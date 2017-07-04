@@ -13,19 +13,17 @@ class RobotProgram
 
 	def initialize
 		@valid_place = false
+		@robot = Robot.new
 	end
 
-	def process_commands
-		robot = Robot.new
-		puts "Load File:"
-		filename = gets
-		filename.chomp!
+	def process_commands(filename)
+
 		File.foreach(filename) do |line|
 			line.chomp!
 			puts line
 			if after_valid_place(line)
 				if valid_command(line)
-					robot.instance_eval line.downcase_command
+					@robot.instance_eval line.downcase_command
 				else
 					puts "Invalid command!"
 				end

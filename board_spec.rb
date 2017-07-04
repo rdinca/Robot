@@ -4,8 +4,8 @@ require 'rspec'
 
 describe Board do
 	it "should maintain limits" do
-		expect(Board.contains(5,6)).to eq(false)
-		expect(Board.contains(2,2)).to eq(true)
+		expect(Board.contains(5,6)).to be false
+		expect(Board.contains(2,2)).to be true
 	end
 
 end

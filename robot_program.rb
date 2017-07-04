@@ -13,6 +13,9 @@ class RobotProgram
 
 	def initialize
 		@valid_place = false
+	end
+
+	def process_commands
 		robot = Robot.new
 		puts "Load File:"
 		filename = gets
@@ -33,7 +36,7 @@ class RobotProgram
 private
 
 	def after_valid_place(command)
-		return @valid_place || (@valid_place = command =~ /PLACE [0-4],[0-4],(NORTH|EAST|WEST|SOUTH)/)
+		return @valid_place || (@valid_place = command =~ /PLACE [0-4],[0-4],(NORTH|EAST|WEST|SOUTH)/ ? true : false)
 	end
 
 	def valid_command(command)
@@ -41,6 +44,4 @@ private
 		false
 	end
 
-end
-
-RobotProgram.new
+end 

@@ -37,14 +37,6 @@ describe Robot do
 		expect { @robot.report }.to output("2,3,EAST\n").to_stdout
 	end
 
-	it "should return true, when robot is not placed on the board, and false otherwise" do
-		@robot = Robot.new
-		expect(@robot.send(:unplaced_robot)).to eq(true)
-
-		expect(@robot.send(:unplaced_robot)).to eq(false)
-
-	end
-
 end
 
 

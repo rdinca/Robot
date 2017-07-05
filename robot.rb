@@ -24,6 +24,13 @@ class Robot
 		WEST => NORTH
 	}
 
+	def self.valid_command(command)
+		return true if (["LEFT", "RIGHT", "MOVE", "REPORT"].include?(command) || command =~ /PLACE \d,\d,(NORTH|EAST|WEST|SOUTH)/)
+		false
+	end
+
+
+
 	def initialize
 		@x = nil
 		@y = nil

@@ -1,12 +1,14 @@
 class Board
 
-	X_LOW_LIMIT	 = 0
-	Y_LOW_LIMIT  = 0
-	X_HIGH_LIMIT = 5
-	Y_HIGH_LIMIT = 5
+	def initialize(x_low_limit, y_low_limit, x_high_limit, y_high_limit)
+		@@x_low_limit = x_low_limit
+		@@y_low_limit = y_low_limit
+		@@x_high_limit = x_high_limit
+		@@y_high_limit = x_high_limit	
+	end
 
 	def self.contains(x,y)
-		x >= X_LOW_LIMIT && y >= Y_LOW_LIMIT && x < X_HIGH_LIMIT && y < Y_HIGH_LIMIT
+		x >= @@x_low_limit && y >= @@y_low_limit && x <= @@x_high_limit && y <= @@y_high_limit
 	end
 
 end

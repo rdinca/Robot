@@ -14,18 +14,16 @@ class RobotProgram
 	def initialize
 		@valid_place = false
 		@robot = Robot.new
+		Board.new(0,0,4,4)
 	end
 
 	def process_commands(filename)
-
+		
 		File.foreach(filename) do |line|
 			line.chomp!
-			#puts line
 			if after_valid_place(line)
-				if valid_command(line)
+				if Robot.valid_command(line)
 					@robot.instance_eval line.downcase_command
-				else
-					#puts "Invalid command!"
 				end
 			end
 		end
@@ -34,12 +32,7 @@ class RobotProgram
 private
 
 	def after_valid_place(command)
-		return @valid_place || (@valid_place = command =~ /PLACE [0-4],[0-4],(NORTH|EAST|WEST|SOUTH)/ ? true : false)
-	end
-
-	def valid_command(command)
-		return true if (["LEFT", "RIGHT", "MOVE", "REPORT"].include?(command) || command =~ /PLACE \d,\d,(NORTH|EAST|WEST|SOUTH)/)
-		false
+		return @valid_place || (@valid_place = command =~ /PLACE [#{Board.class_variable_get("@@x_low_limit")}-#{Board.class_variable_get("@@x_high_limit")}],[#{Board.class_variable_get("@@y_low_limit")}-#{Board.class_variable_get("@@y_high_limit")}],(NORTH|EAST|WEST|SOUTH)/ ? true : false)
 	end
 
 end 

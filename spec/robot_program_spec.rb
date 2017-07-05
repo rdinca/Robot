@@ -14,7 +14,7 @@ describe RobotProgram do
 
 	it "should output the correct report" do
 		rp = RobotProgram.new
-		expect { rp.process_commands("example2.robot") }.to output("3,3,NORTH").to_stdout
+		expect { rp.process_commands("example.robot") }.to output("3,3,NORTH").to_stdout
 	end
 
 end
